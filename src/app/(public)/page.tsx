@@ -13,7 +13,6 @@ import {
   Heart,
   Baby,
   Smile,
-  Megaphone,
   Lock,
   Unlock,
   AlertCircle,
@@ -51,17 +50,7 @@ export default async function PublicLandingPage() {
 
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
-      {/* 1. DYNAMIC ANNOUNCEMENT BANNER */}
-      {settings?.announcement_banner_text && (
-        <section aria-label="Pengumuman Penting" className="bg-[#FFEDB7] border-b border-[#F78100]/30 text-[#8B4500] px-4 py-2.5">
-          <div className="max-w-7xl mx-auto flex items-center justify-center gap-2.5 text-xs sm:text-sm font-medium text-center">
-            <Megaphone className="w-4 h-4 text-[#F78100] flex-shrink-0 animate-bounce" />
-            <span>{settings.announcement_banner_text}</span>
-          </div>
-        </section>
-      )}
-
-      {/* 2. HERO SECTION DENGAN INDIKATOR STATUS REAL-TIME */}
+      {/* 1. HERO SECTION DENGAN INDIKATOR STATUS REAL-TIME */}
       <section className="relative overflow-hidden pt-8 sm:pt-14 pb-12 sm:pb-20 bg-gradient-to-b from-[#006633]/8 via-transparent to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
