@@ -71,11 +71,11 @@ export default async function PublicLandingPage() {
                 {isPpdbOpen ? (
                   <Link
                     href="/daftar"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-bold bg-[#006633] hover:bg-[#004d26] text-white shadow-xs transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-bold bg-[#006633] hover:bg-[#004d26] text-white shadow-xs btn-pmb-interactive group"
                   >
                     <FileText className="w-4 h-4" />
                     <span>Daftar Siswa Baru</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 ) : (
                   <div className="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-300 text-xs text-slate-700 text-center">
@@ -191,7 +191,7 @@ export default async function PublicLandingPage() {
             return (
               <div
                 key={level.id}
-                className="card-base-pmb bg-white border border-[#DFE3E9] rounded-lg p-6 shadow-xs hover:border-[#006633] transition-all flex flex-col justify-between"
+                className="card-base-pmb card-interactive bg-white border border-[#DFE3E9] rounded-lg p-6 flex flex-col justify-between group"
               >
                 <div>
                   {/* BADGE KOTAK TEGAS DENGAN KONTRAS TINGGI SESUAI REVISI 7 */}
@@ -211,7 +211,7 @@ export default async function PublicLandingPage() {
                   </div>
 
                   <div className="mt-4">
-                    <h3 className="font-bold text-base text-[#2A2A2C]">{level.name}</h3>
+                    <h3 className="font-bold text-base text-[#2A2A2C] group-hover:text-[#006633] transition-colors">{level.name}</h3>
                     <p className="text-xs text-[#006633] font-semibold mt-0.5">
                       {level.age_requirement_text}
                     </p>
@@ -233,10 +233,10 @@ export default async function PublicLandingPage() {
                   {isLevelActive ? (
                     <Link
                       href={`/daftar?jenjang=${level.id}`}
-                      className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-md text-xs font-bold bg-[#006633] hover:bg-[#004d26] text-white transition-all shadow-xs"
+                      className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-md text-xs font-bold bg-[#006633] hover:bg-[#004d26] text-white btn-pmb-interactive shadow-xs group/btn"
                     >
                       <span>Pilih &amp; Daftar Jenjang Ini</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-200" />
                     </Link>
                   ) : (
                     <button

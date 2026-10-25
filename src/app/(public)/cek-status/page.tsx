@@ -21,6 +21,7 @@ import {
   HelpCircle,
   FileText,
   Building,
+  X,
 } from 'lucide-react'
 import { checkApplicantStatusAction } from '@/actions/registration-actions'
 import { formatDateIndo } from '@/lib/utils'
@@ -101,7 +102,14 @@ function CekStatusContent() {
         </nav>
 
         {/* Header Section (Disembunyikan saat dicetak) */}
-        <div className="card-base-pmb bg-white border border-[#DFE3E9] rounded-lg p-6 sm:p-8 shadow-xs mb-8 print:hidden">
+        <div className="card-base-pmb bg-white border border-[#DFE3E9] rounded-lg p-6 sm:p-8 shadow-xs mb-8 print:hidden relative overflow-hidden">
+          {/* SLEEK PROGRESS LOADER (REF UIVERSE SATYAMCHAUDHARYDEV) */}
+          {isPending && (
+            <div className="absolute top-0 left-0 right-0">
+              <div className="pmb-line-loader" />
+            </div>
+          )}
+
           <div className="max-w-2xl">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-[#2A2A2C] tracking-tight mb-2">
               Cek Status Pendaftaran
@@ -130,14 +138,14 @@ function CekStatusContent() {
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
                   placeholder="Contoh: PPDB-2026-0001 atau 3201012345670001"
-                  className="w-full pl-10 pr-4 py-3 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#006633] focus:border-transparent transition-all shadow-sm text-sm md:text-base"
+                  className="w-full pl-10 pr-4 py-3 bg-white border border-[#D0D5DD] rounded-lg text-slate-900 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#006633] focus:border-[#006633] transition-all shadow-xs text-sm md:text-base"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isPending || !identifier.trim()}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-[#006633] hover:bg-[#004d26] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold text-sm md:text-base transition-all shadow-sm shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-[#006633] hover:bg-[#004d26] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold text-sm md:text-base btn-pmb-interactive shadow-xs shrink-0 cursor-pointer"
               >
                 {isPending ? (
                   <>
@@ -159,34 +167,49 @@ function CekStatusContent() {
           </form>
         </div>
 
-        {/* PESAN ERROR / TIDAK DITEMUKAN */}
+        {/* PESAN ERROR / TIDAK DITEMUKAN (REF UIVERSE ILKHOERI ALERT COMPONENT) */}
         {hasSearched && !isPending && errorMessage && (
-          <div className="bg-white rounded-2xl border border-rose-200 p-6 md:p-8 shadow-sm mb-8 text-center print:hidden">
-            <div className="w-14 h-14 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-4 border border-rose-100">
-              <AlertCircle className="w-8 h-8" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Data Tidak Ditemukan</h3>
-            <p className="text-slate-600 max-w-lg mx-auto text-sm leading-relaxed mb-6">
-              {errorMessage}
-            </p>
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl max-w-md mx-auto text-left text-xs text-slate-600 space-y-2">
-              <p className="font-bold text-slate-800">Petunjuk Pengecekan:</p>
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Pastikan format Nomor Registrasi tepat (contoh: <code>PPDB-2026-0001</code>).</li>
-                <li>Jika menggunakan NIK, pastikan tepat 16 digit angka tanpa spasi/tanda hubung.</li>
-                <li>Jika Anda baru saja mendaftar, pastikan proses unggah formulir telah tuntas.</li>
-              </ul>
-            </div>
-            <div className="mt-6 flex justify-center gap-3">
-              <a
-                href="https://wa.me/6281234567890?text=Halo%20Panitia%20PPDB,%20saya%20mengalami%20kendala%20saat%20cek%20status%20pendaftaran"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors shadow-sm"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Bantuan WhatsApp Panitia
-              </a>
+          <div className="bg-white rounded-lg border border-rose-300 p-6 md:p-8 shadow-xs mb-8 relative print:hidden">
+            <button
+              type="button"
+              onClick={() => setErrorMessage('')}
+              className="absolute right-4 top-4 p-1 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors"
+              aria-label="Tutup pesan error"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+              <div className="w-12 h-12 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 border border-rose-200">
+                <AlertCircle className="w-6 h-6" />
+              </div>
+              <div className="text-center sm:text-left flex-1">
+                <h3 className="text-lg font-bold text-slate-900 mb-1">Data Pendaftaran Tidak Ditemukan</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                  {errorMessage}
+                </p>
+
+                <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-600 space-y-1.5 max-w-xl">
+                  <p className="font-bold text-slate-800">Petunjuk Pengecekan:</p>
+                  <ul className="list-disc pl-4 space-y-1">
+                    <li>Pastikan format Nomor Registrasi tepat (contoh: <code>PPDB-2026-0001</code>).</li>
+                    <li>Jika menggunakan NIK, pastikan tepat 16 digit angka tanpa spasi/tanda hubung.</li>
+                    <li>Jika Anda baru saja mendaftar, pastikan formulir telah selesai dikirim.</li>
+                  </ul>
+                </div>
+
+                <div className="mt-4 flex flex-wrap justify-center sm:justify-start gap-3">
+                  <a
+                    href="https://wa.me/6281234567890?text=Halo%20Panitia%20PPDB,%20saya%20mengalami%20kendala%20saat%20cek%20status%20pendaftaran"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#006633] hover:bg-[#004d26] text-white font-semibold text-xs transition-colors shadow-xs"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Bantuan WhatsApp Panitia</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         )}

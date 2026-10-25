@@ -41,6 +41,68 @@ body {
   border-radius: 8px;
 }
 
+/* Progress Line Loader (Inspired by Uiverse satyamchaudharydev) */
+.pmb-line-loader {
+  display: block;
+  --loader-height: 3px;
+  --loader-color: #006633;
+  width: 100%;
+  height: var(--loader-height);
+  background-color: rgba(0, 102, 51, 0.12);
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.pmb-line-loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 4px;
+  animation: pmb-loader-moving 1.2s ease-in-out infinite;
+}
+
+@keyframes pmb-loader-moving {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 60%;
+    left: 20%;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+/* Tactile Soft Shadow Button Hover (Inspired by Uiverse Jedi-hongbin) */
+.btn-pmb-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-pmb-interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 102, 51, 0.18);
+}
+.btn-pmb-interactive:active {
+  transform: translateY(0);
+}
+
+/* Card Subtle Elevation & Arrow Motion (Inspired by Uiverse satyamchaudharydev / georgefrancis) */
+.card-interactive {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: #006633;
+}
+
 /* Button Ripple & Custom Transition */
 .btn-pmb-primary {
   background-color: #006633;

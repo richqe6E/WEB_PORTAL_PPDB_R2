@@ -88,15 +88,29 @@ export function PublicHeader() {
               </Link>
             </div>
 
-            {/* SISI KANAN MOBILE: HANYA 1 TOMBOL MENU HAMBURGER (BERSIH & LEGA) */}
+            {/* SISI KANAN MOBILE: ANIMATED HAMBURGER TOGGLE (REF CEVOROB) */}
             <div className="md:hidden flex items-center">
               <button
                 type="button"
-                onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-                aria-label="Buka Menu Navigasi"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="relative w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 flex flex-col items-center justify-center p-2.5 transition-colors cursor-pointer"
+                aria-label={isMobileMenuOpen ? 'Tutup Menu Navigasi' : 'Buka Menu Navigasi'}
               >
-                <Menu className="w-6 h-6" />
+                <span
+                  className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 origin-center ${
+                    isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-200 my-1 ${
+                    isMobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 origin-center ${
+                    isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
+                  }`}
+                />
               </button>
             </div>
           </div>
@@ -239,3 +253,4 @@ export function PublicHeader() {
     </>
   )
 }
+
