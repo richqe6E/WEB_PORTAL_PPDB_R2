@@ -4,7 +4,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   XCircle,
-  Sparkles,
+  Award,
   User,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -34,12 +34,12 @@ export function VerificationBadge({
       return (
         <span
           className={cn(
-            'inline-flex items-center gap-1.5 font-bold rounded-full border bg-emerald-50 text-emerald-800 border-emerald-200',
+            'inline-flex items-center gap-1.5 font-bold rounded-[4px] border bg-emerald-50 text-emerald-900 border-emerald-300',
             sizeClasses,
             className
           )}
         >
-          {showIcon && <CheckCircle2 className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5'} />}
+          {showIcon && <CheckCircle2 className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5 text-[#006633]'} />}
           <span>Terverifikasi</span>
         </span>
       )
@@ -47,12 +47,12 @@ export function VerificationBadge({
       return (
         <span
           className={cn(
-            'inline-flex items-center gap-1.5 font-bold rounded-full border bg-rose-50 text-rose-800 border-rose-200',
+            'inline-flex items-center gap-1.5 font-bold rounded-[4px] border bg-rose-50 text-rose-900 border-rose-300',
             sizeClasses,
             className
           )}
         >
-          {showIcon && <AlertTriangle className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5'} />}
+          {showIcon && <AlertTriangle className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5 text-rose-700'} />}
           <span>Perlu Revisi</span>
         </span>
       )
@@ -61,12 +61,12 @@ export function VerificationBadge({
       return (
         <span
           className={cn(
-            'inline-flex items-center gap-1.5 font-bold rounded-full border bg-amber-50 text-amber-800 border-amber-200',
+            'inline-flex items-center gap-1.5 font-bold rounded-[4px] border bg-amber-50 text-amber-900 border-amber-300',
             sizeClasses,
             className
           )}
         >
-          {showIcon && <Clock className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5'} />}
+          {showIcon && <Clock className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5 text-amber-700'} />}
           <span>Menunggu</span>
         </span>
       )
@@ -93,12 +93,12 @@ export function SelectionBadge({
       return (
         <span
           className={cn(
-            'inline-flex items-center gap-1.5 font-extrabold rounded-full bg-[#006633] text-white shadow-xs',
+            'inline-flex items-center gap-1.5 font-bold rounded-[4px] bg-[#006633] text-white border border-[#004d26] shadow-2xs',
             sizeClasses,
             className
           )}
         >
-          {showIcon && <Sparkles className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5'} />}
+          {showIcon && <CheckCircle2 className={size === 'sm' ? 'w-3 h-3' : 'w-3.5 h-3.5'} />}
           <span>DITERIMA</span>
         </span>
       )
@@ -106,7 +106,7 @@ export function SelectionBadge({
       return (
         <span
           className={cn(
-            'inline-flex items-center gap-1.5 font-bold rounded-full border bg-rose-100 text-rose-800 border-rose-300',
+            'inline-flex items-center gap-1.5 font-bold rounded-[4px] border bg-rose-100 text-rose-900 border-rose-300',
             sizeClasses,
             className
           )}
@@ -120,7 +120,7 @@ export function SelectionBadge({
       return (
         <span
           className={cn(
-            'inline-flex items-center gap-1.5 font-semibold rounded-full border bg-slate-100 text-slate-600 border-slate-200',
+            'inline-flex items-center gap-1.5 font-semibold rounded-[4px] border bg-slate-100 text-slate-700 border-slate-300',
             sizeClasses,
             className
           )}
@@ -135,17 +135,16 @@ export function SelectionBadge({
 export function GenderBadge({ gender }: { gender: GenderEnum }) {
   if (gender === 'L') {
     return (
-      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[4px] text-[11px] font-semibold bg-blue-50 text-blue-800 border border-blue-200">
         <User className="w-3 h-3" />
         Laki-laki
       </span>
     )
   }
   return (
-    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-pink-50 text-pink-700 border border-pink-200">
+    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[4px] text-[11px] font-semibold bg-pink-50 text-pink-800 border border-pink-200">
       <User className="w-3 h-3" />
       Perempuan
     </span>
   )
 }
-

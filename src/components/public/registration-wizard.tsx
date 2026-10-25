@@ -225,7 +225,7 @@ export function RegistrationWizard({
           {/* KOP SURAT YAYASAN */}
           <div className="border-b-2 border-black pb-3 text-center relative">
             <h1 className="text-xl font-bold uppercase tracking-wide text-black">
-              YAYASAN ISLAM AMANAH UMMAT
+              YAYASAN ICA
             </h1>
             <p className="text-xs uppercase font-bold tracking-wider text-black mt-0.5">
               PANITIA PENERIMAAN PESERTA DIDIK BARU (PPDB) ONLINE TAHUN AJARAN {academicYear}
@@ -359,25 +359,25 @@ export function RegistrationWizard({
         {/* =========================================================================
             2. TAMPILAN SCREEN INTERAKTIF (print:hidden)
             ========================================================================= */}
-        <div className="print:hidden card-base-pmb bg-white border border-[#DFE3E9] rounded-2xl p-8 sm:p-12 shadow-md max-w-2xl mx-auto text-center space-y-6">
-          <div className="w-20 h-20 rounded-full bg-[#D0FFD5] text-[#006633] flex items-center justify-center mx-auto shadow-sm">
-            <CheckCircle2 className="w-12 h-12" />
+        <div className="print:hidden card-base-pmb bg-white border border-[#DFE3E9] rounded-lg p-6 sm:p-10 shadow-sm max-w-2xl mx-auto text-center space-y-6">
+          <div className="w-16 h-16 rounded-lg bg-emerald-50 text-[#006633] border border-emerald-200 flex items-center justify-center mx-auto shadow-xs">
+            <CheckCircle2 className="w-10 h-10" />
           </div>
 
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#006633] bg-[#006633]/10 px-3 py-1 rounded-full">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#006633] bg-emerald-50 border border-emerald-300 px-3 py-1 rounded-[4px]">
               Pendaftaran Berhasil Dikirim
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2A2A2C] mt-2">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2A2A2C] mt-3">
               Selamat, Data Calon Siswa Diterima!
             </h2>
-            <p className="text-xs sm:text-sm text-[#667686] mt-1 max-w-md mx-auto">
-              Terima kasih telah mendaftarkan ananda <strong>{registeredData.childName}</strong> di Yayasan Islam untuk Tahun Ajaran {academicYear}.
+            <p className="text-xs sm:text-sm text-[#667686] mt-2 max-w-md mx-auto">
+              Terima kasih telah mendaftarkan ananda <strong>{registeredData.childName}</strong> di Yayasan ICA untuk Tahun Ajaran {academicYear}.
             </p>
           </div>
 
           {/* KARTU NOMOR REGISTRASI */}
-          <div className="p-6 rounded-xl bg-gray-50 border-2 border-dashed border-[#006633]/40 space-y-2">
+          <div className="p-6 rounded-lg bg-gray-50 border-2 border-dashed border-[#006633]/40 space-y-2">
             <span className="text-xs text-[#667686] uppercase font-semibold tracking-wider">
               Nomor Pendaftaran Resmi Anda
             </span>

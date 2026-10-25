@@ -11,7 +11,6 @@ import {
   EyeOff,
   ArrowLeft,
   GraduationCap,
-  ShieldCheck,
   AlertCircle,
   LogIn,
 } from 'lucide-react'
@@ -38,23 +37,17 @@ export default function LoginPage() {
           </Link>
         </div>
 
-        {/* Kartu Login */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 relative overflow-hidden">
-          {/* Header Aksen Hijau POLNES */}
-          <div className="absolute top-0 left-0 right-0 h-2 bg-[#006633]" />
-
-          <div className="text-center pb-6 border-b border-slate-100">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-[#006633] flex items-center justify-center mx-auto mb-3 shadow-xs border border-emerald-100">
-              <ShieldCheck className="w-8 h-8" />
-            </div>
-            <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-[#006633] mb-2">
-              Panel Autentikasi Resmi
+        {/* Kartu Login (Standar SPMB POLNES, Bebas Garis Warna & Badge AI) */}
+        <div className="card-base-pmb bg-white border border-[#DFE3E9] rounded-lg shadow-xs p-6 sm:p-8">
+          <div className="text-center pb-6 border-b border-slate-200">
+            <span className="text-xs uppercase font-bold tracking-wider text-[#006633] block mb-1">
+              YAYASAN ICA &bull; PORTAL PPDB
             </span>
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
               Login Petugas Tata Usaha (TU)
             </h1>
-            <p className="text-xs text-slate-500 mt-1">
-              Masukkan kredensial akun panitia untuk mengelola pendaftar, saklar PPDB, dan jadwal seleksi.
+            <p className="text-xs text-slate-500 mt-1.5 max-w-xs mx-auto">
+              Masukkan kredensial akun untuk mengelola data pendaftar dan penetapan status seleksi.
             </p>
           </div>
 
@@ -153,7 +146,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center text-[11px] text-slate-500 mt-6">
-          &copy; {new Date().getFullYear()} Yayasan Islam Amanah Ummat. Hak cipta dilindungi.
+          &copy; {new Date().getFullYear()} Yayasan ICA. Hak cipta dilindungi.
         </p>
       </div>
     </div>

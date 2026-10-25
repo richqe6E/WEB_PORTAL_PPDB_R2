@@ -5,7 +5,7 @@ import {
   Clock,
   AlertTriangle,
   CheckCircle2,
-  Sparkles,
+  Award,
   ArrowLeft,
   Settings,
 } from 'lucide-react'
@@ -142,15 +142,15 @@ export default async function AdminPendaftarPage() {
         </div>
 
         {/* Lulus Diterima */}
-        <div className="bg-white rounded-xl border border-emerald-300 p-4 shadow-xs bg-gradient-to-br from-white to-emerald-50/40 col-span-2 sm:col-span-1">
+        <div className="bg-white rounded-lg border border-[#DFE3E9] p-4 shadow-xs col-span-2 sm:col-span-1">
           <div className="flex items-center justify-between text-emerald-800 mb-1.5">
             <span className="text-xs font-bold uppercase tracking-wide">Lulus Diterima</span>
-            <div className="p-1.5 rounded-lg bg-emerald-600 text-white">
-              <Sparkles className="w-4 h-4" />
+            <div className="p-1.5 rounded-md bg-[#006633] text-white">
+              <Award className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-2xl font-black text-emerald-950">{acceptedCount}</div>
-          <span className="text-[11px] text-emerald-700 mt-0.5 block">Siap daftar ulang</span>
+          <div className="text-2xl font-black text-slate-900">{acceptedCount}</div>
+          <span className="text-[11px] text-slate-600 mt-0.5 block">Siap daftar ulang</span>
         </div>
       </div>
 

@@ -381,7 +381,7 @@ export function ApplicantsTable({
                   const age = calculateChildAge(applicant.birth_date)
                   const waNumber = formatWhatsAppNumber(applicant.parent_whatsapp)
                   const waMessage = encodeURIComponent(
-                    `Assalamu'alaikum Wr. Wb. Yth. Ayah/Bunda dari ananda ${applicant.child_full_name} (No. Registrasi: ${applicant.registration_number}), kami dari Panitia PPDB Yayasan Islam ingin mengonfirmasi terkait pendaftaran jenjang ${applicant.education_level?.name || 'PAUD/TK'}.`
+                    `Assalamu'alaikum Wr. Wb. Yth. Ayah/Bunda dari ananda ${applicant.child_full_name} (No. Registrasi: ${applicant.registration_number}), kami dari Panitia PPDB Yayasan ICA ingin mengonfirmasi terkait pendaftaran jenjang ${applicant.education_level?.name || 'PAUD/TK'}.`
                   )
 
                   return (
@@ -427,8 +427,8 @@ export function ApplicantsTable({
 
                       {/* Kolom 3: Jenjang */}
                       <td className="py-4 px-4 whitespace-nowrap">
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-[#006633] border border-emerald-200">
-                          <GraduationCap className="w-3.5 h-3.5" />
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[4px] text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-300">
+                          <GraduationCap className="w-3.5 h-3.5 text-[#006633]" />
                           {applicant.education_level?.name || 'PAUD/TK'}
                         </span>
                       </td>

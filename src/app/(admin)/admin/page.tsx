@@ -100,10 +100,10 @@ export default async function AdminDashboardPage() {
           <div>
             <div className="flex items-center gap-2">
               <span
-                className={`text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                className={`text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-[4px] border ${
                   isPpdbOpen
-                    ? 'bg-[#D0FFD5] text-[#006633]'
-                    : 'bg-[#FEE2E2] text-[#EE2737]'
+                    ? 'bg-emerald-50 text-[#006633] border-emerald-300'
+                    : 'bg-rose-50 text-[#EE2737] border-rose-300'
                 }`}
               >
                 {isPpdbOpen ? 'PPDB DIBUKA' : 'PPDB DITUTUP'}
@@ -270,10 +270,10 @@ export default async function AdminDashboardPage() {
                     <span className="text-xs text-[#667686]">{level.age_requirement_text}</span>
                   </div>
                   <span
-                    className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                    className={`text-xs font-semibold px-2.5 py-0.5 rounded-[4px] border ${
                       level.is_active
-                        ? 'bg-[#D0FFD5] text-[#006633]'
-                        : 'bg-[#FEE2E2] text-[#EE2737]'
+                        ? 'bg-emerald-50 text-[#006633] border-emerald-300'
+                        : 'bg-rose-50 text-[#EE2737] border-rose-300'
                     }`}
                   >
                     {level.is_active ? 'Dibuka' : 'Ditutup'}

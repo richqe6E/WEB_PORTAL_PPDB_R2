@@ -8,7 +8,7 @@ import {
   Clock,
   AlertTriangle,
   XCircle,
-  Sparkles,
+  Award,
   Save,
   MessageCircle,
   Copy,
@@ -82,7 +82,7 @@ export function VerificationFormViewer({
   const age = calculateChildAge(applicant.birth_date)
   const waNumber = formatWhatsAppNumber(applicant.parent_whatsapp)
   const waMessage = encodeURIComponent(
-    `Assalamu'alaikum Wr. Wb. Yth. Ayah/Bunda dari ananda ${applicant.child_full_name} (No. Registrasi: ${applicant.registration_number}), kami dari Panitia PPDB Yayasan Islam ingin mengonfirmasi terkait dokumen pendaftaran jenjang ${applicant.education_level?.name || 'PAUD/TK'}.`
+    `Assalamu'alaikum Wr. Wb. Yth. Ayah/Bunda dari ananda ${applicant.child_full_name} (No. Registrasi: ${applicant.registration_number}), kami dari Panitia PPDB Yayasan ICA ingin mengonfirmasi terkait dokumen pendaftaran jenjang ${applicant.education_level?.name || 'PAUD/TK'}.`
   )
 
   const docTabs: { key: DocTabKey; label: string; url: string | null }[] = [
@@ -166,7 +166,7 @@ export function VerificationFormViewer({
           </Link>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#006633] border border-emerald-200">
+              <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-[4px] bg-slate-100 text-slate-800 border border-slate-300">
                 {applicant.registration_number}
               </span>
               <span className="text-xs text-slate-500">
@@ -190,14 +190,14 @@ export function VerificationFormViewer({
         {/* KOLOM KIRI (5 KOLOM / 12): BIODATA & FORM KEPUTUSAN ADMIN */}
         <div className="lg:col-span-5 space-y-6">
           {/* KARTU BIODATA CALON SISWA */}
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 space-y-4">
+          <div className="bg-white rounded-lg border border-[#DFE3E9] shadow-xs p-5 space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <h2 className="font-extrabold text-slate-900 text-sm flex items-center gap-2">
                 <User className="w-4 h-4 text-[#006633]" />
                 Biodata Calon Siswa
               </h2>
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-[#006633] border border-emerald-200">
-                <GraduationCap className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[4px] text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-300">
+                <GraduationCap className="w-3.5 h-3.5 text-[#006633]" />
                 {applicant.education_level?.name || 'PAUD/TK'}
               </span>
             </div>
@@ -392,13 +392,13 @@ export function VerificationFormViewer({
                 <button
                   type="button"
                   onClick={() => setSelectionStatus('DITERIMA')}
-                  className={`p-2 rounded-xl border text-center text-xs font-bold transition-all ${
+                  className={`p-2 rounded-lg border text-center text-xs font-bold transition-all ${
                     selectionStatus === 'DITERIMA'
-                      ? 'bg-[#006633] text-white border-[#004d26] ring-2 ring-emerald-600/40'
-                      : 'bg-white text-emerald-900 border-emerald-200 hover:bg-emerald-50'
+                      ? 'bg-[#006633] text-white border-[#004d26] ring-1 ring-[#006633]'
+                      : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <Sparkles className="w-4 h-4 mx-auto mb-1 text-emerald-300" />
+                  <Award className="w-4 h-4 mx-auto mb-1 text-emerald-300" />
                   <span>DITERIMA</span>
                 </button>
 

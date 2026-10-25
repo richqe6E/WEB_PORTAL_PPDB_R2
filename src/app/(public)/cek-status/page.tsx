@@ -18,7 +18,6 @@ import {
   Printer,
   MessageCircle,
   ArrowLeft,
-  Sparkles,
   HelpCircle,
   FileText,
   Building,
@@ -102,19 +101,13 @@ function CekStatusContent() {
         </nav>
 
         {/* Header Section (Disembunyikan saat dicetak) */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm mb-8 print:hidden relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-2 h-full bg-[#006633]" />
+        <div className="card-base-pmb bg-white border border-[#DFE3E9] rounded-lg p-6 sm:p-8 shadow-xs mb-8 print:hidden">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-[#006633] border border-emerald-200 mb-3">
-              <Search className="w-3.5 h-3.5" />
-              Portal Layanan Mandiri Orang Tua
-            </span>
-            <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-              Cek Status Pendaftaran & Hasil Seleksi
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#2A2A2C] tracking-tight mb-2">
+              Cek Status Pendaftaran
             </h1>
-            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-              Pantau tahapan verifikasi dokumen oleh panitia Tata Usaha (TU) dan ketetapan hasil akhir
-              seleksi siswa baru secara transparan dan berkala.
+            <p className="text-sm text-[#667686] leading-relaxed">
+              Masukkan Nomor Registrasi PPDB atau 16 digit NIK anak Anda untuk melihat status verifikasi berkas dan hasil seleksi.
             </p>
           </div>
 
@@ -204,56 +197,53 @@ function CekStatusContent() {
             {/* Header Cetak Formal (Hanya tampil saat dicetak) */}
             <div className="hidden print:block pb-4 mb-4 border-b-2 border-slate-900 text-center">
               <h2 className="text-xl font-bold tracking-tight uppercase text-slate-900">
-                Yayasan Islam Amanah Ummat
+                YAYASAN ICA
               </h2>
               <p className="text-xs text-slate-700">
-                PANITIA PENERIMAAN PESERTA DIDIK BARU (PPDB) ONLINE PAUD & TK
+                PANITIA PENERIMAAN PESERTA DIDIK BARU (PPDB) ONLINE PAUD &amp; TK
               </p>
               <p className="text-[11px] text-slate-500">
-                Jl. Pendidikan Karakter No. 12, Kompleks Bina Bangsa | Telepon/WhatsApp: 0812-3456-7890
+                Jl. Pendidikan Karakter No. 12, Kompleks Bina Bangsa, Samarinda | Telp/WA: 0812-3456-7890
               </p>
               <div className="mt-2 text-sm font-bold uppercase underline">
-                LEMBAR STATUS RESMI PENDAFTARAN & SELEKSI
+                LEMBAR STATUS RESMI PENDAFTARAN &amp; SELEKSI
               </div>
             </div>
 
-            {/* KARTU IDENTITAS PENDAFTAR */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="h-2 bg-[#006633]" />
-
-              <div className="p-6 md:p-8">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-slate-200">
-                  <div>
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Nomor Registrasi Resmi
+            {/* KARTU IDENTITAS PENDAFTAR (STANDAR POLNES, BEBAS GARIS WARNA SAMPING/ATAS) */}
+            <div className="card-base-pmb bg-white border border-[#DFE3E9] rounded-lg p-6 sm:p-8 shadow-xs">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-slate-200">
+                <div>
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    Nomor Registrasi Resmi
+                  </span>
+                  <div className="flex items-center gap-2.5 mt-1">
+                    <span className="font-mono text-xl md:text-2xl font-black text-slate-900 tracking-wider">
+                      {applicantData.registration_number}
                     </span>
-                    <div className="flex items-center gap-2.5 mt-1">
-                      <span className="font-mono text-xl md:text-2xl font-black text-slate-900 tracking-wider">
-                        {applicantData.registration_number}
-                      </span>
-                      <button
-                        onClick={() =>
-                          handleCopyRegistrationNumber(applicantData.registration_number)
-                        }
-                        title="Salin Nomor Registrasi"
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors print:hidden"
-                      >
-                        <Copy className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-[#006633] border border-emerald-200">
-                      <GraduationCap className="w-4 h-4" />
-                      Jenjang {applicantData.level_name}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
-                      <Calendar className="w-3.5 h-3.5 text-slate-500" />
-                      Terdaftar: {formatDateIndo(applicantData.created_at)}
-                    </span>
+                    <button
+                      onClick={() =>
+                        handleCopyRegistrationNumber(applicantData.registration_number)
+                      }
+                      title="Salin Nomor Registrasi"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors print:hidden cursor-pointer"
+                    >
+                      <Copy className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
+
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[4px] text-xs font-bold bg-slate-100 text-slate-800 border border-slate-300">
+                    <GraduationCap className="w-4 h-4 text-[#006633]" />
+                    Jenjang {applicantData.level_name}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[4px] text-xs font-semibold bg-white text-slate-700 border border-slate-200">
+                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                    Terdaftar: {formatDateIndo(applicantData.created_at)}
+                  </span>
+                </div>
+              </div>
 
                 {/* Nama Calon Siswa */}
                 <div className="pt-6">
@@ -265,7 +255,6 @@ function CekStatusContent() {
                   </h2>
                 </div>
               </div>
-            </div>
 
             {/* STATUS 1: VERIFIKASI BERKAS OLEH PANITIA TATA USAHA (TU) */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
@@ -285,7 +274,7 @@ function CekStatusContent() {
               {applicantData.verification_status === 'TERVERIFIKASI' && (
                 <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 mb-4">
                   <div className="flex items-start gap-3.5">
-                    <div className="p-2 rounded-xl bg-emerald-100 text-[#006633] shrink-0 mt-0.5">
+                    <div className="p-2 rounded-lg bg-emerald-100 text-[#006633] shrink-0 mt-0.5">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <div>
@@ -293,7 +282,7 @@ function CekStatusContent() {
                         <span className="font-extrabold text-[#006633] text-base">
                           BERKAS SAH & TERVERIFIKASI
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-200/60 text-emerald-900">
+                        <span className="px-2.5 py-0.5 rounded-[4px] text-[11px] font-bold bg-emerald-100 text-emerald-900 border border-emerald-300">
                           Lengkap
                         </span>
                       </div>
@@ -310,7 +299,7 @@ function CekStatusContent() {
               {applicantData.verification_status === 'MENUNGGU_VERIFIKASI' && (
                 <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-4">
                   <div className="flex items-start gap-3.5">
-                    <div className="p-2 rounded-xl bg-amber-100 text-amber-700 shrink-0 mt-0.5">
+                    <div className="p-2 rounded-lg bg-amber-100 text-amber-700 shrink-0 mt-0.5">
                       <Clock className="w-6 h-6" />
                     </div>
                     <div>
@@ -318,7 +307,7 @@ function CekStatusContent() {
                         <span className="font-extrabold text-amber-900 text-base">
                           SEDANG DALAM ANTREAN VERIFIKASI
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-200 text-amber-900">
+                        <span className="px-2.5 py-0.5 rounded-[4px] text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
                           Proses TU
                         </span>
                       </div>
@@ -335,7 +324,7 @@ function CekStatusContent() {
               {applicantData.verification_status === 'PERLU_REVISI' && (
                 <div className="bg-rose-50 border border-rose-200 rounded-xl p-5 mb-4">
                   <div className="flex items-start gap-3.5">
-                    <div className="p-2 rounded-xl bg-rose-100 text-rose-700 shrink-0 mt-0.5">
+                    <div className="p-2 rounded-lg bg-rose-100 text-rose-700 shrink-0 mt-0.5">
                       <AlertTriangle className="w-6 h-6" />
                     </div>
                     <div>
@@ -343,7 +332,7 @@ function CekStatusContent() {
                         <span className="font-extrabold text-rose-900 text-base">
                           DOKUMEN MEMERLUKAN PERBAIKAN / REVISI
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-200 text-rose-900">
+                        <span className="px-2.5 py-0.5 rounded-[4px] text-[11px] font-bold bg-rose-100 text-rose-900 border border-rose-300">
                           Tindakan Diperlukan
                         </span>
                       </div>
@@ -359,14 +348,14 @@ function CekStatusContent() {
 
               {/* CATATAN PANITIA TU JIKA ADA */}
               {applicantData.admin_notes && (
-                <div className="bg-slate-50 border-l-4 border-amber-500 rounded-r-xl p-4 text-slate-800">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wide block mb-1">
+                <div className="bg-amber-50/70 border border-amber-300 rounded-lg p-4 text-slate-800">
+                  <span className="text-xs font-bold text-slate-700 uppercase tracking-wide block mb-1">
                     Catatan Khusus dari Verifikator TU:
                   </span>
-                  <p className="text-sm font-medium leading-relaxed italic">
+                  <p className="text-sm font-medium leading-relaxed italic text-slate-800">
                     "{applicantData.admin_notes}"
                   </p>
-                  <p className="text-xs text-slate-500 mt-2">
+                  <p className="text-xs text-slate-600 mt-2">
                     * Silakan hubungi nomor WhatsApp Panitia dengan menyertakan Nomor Registrasi Anda
                     untuk pengiriman berkas perbaikan.
                   </p>
@@ -408,14 +397,14 @@ function CekStatusContent() {
                 // SAKLAR PENGUMUMAN TELAH DIBUKA RESMI
                 <div>
                   {applicantData.selection_status === 'DITERIMA' && (
-                    <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-emerald-50 border-2 border-emerald-500 rounded-2xl p-6 md:p-8 text-center relative overflow-hidden">
-                      <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto mb-4 shadow-md">
-                        <Sparkles className="w-8 h-8" />
+                    <div className="card-base-pmb bg-white border-2 border-emerald-600 rounded-lg p-6 md:p-8 text-center relative">
+                      <div className="w-14 h-14 rounded-lg bg-[#006633] text-white flex items-center justify-center mx-auto mb-4 shadow-xs">
+                        <CheckCircle2 className="w-8 h-8" />
                       </div>
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-black tracking-widest uppercase bg-emerald-200 text-emerald-950 mb-3">
+                      <span className="inline-block px-3 py-1 rounded-[4px] text-xs font-bold tracking-wider uppercase bg-[#006633] text-white mb-3">
                         KEPUTUSAN RESMI PANITIA
                       </span>
-                      <h4 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
+                      <h4 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
                         SELAMAT! CALON SISWA DINYATAKAN DITERIMA
                       </h4>
                       <p className="text-sm md:text-base text-slate-700 max-w-xl mx-auto leading-relaxed mb-6">
@@ -503,7 +492,7 @@ function CekStatusContent() {
                 <p className="text-slate-700">
                   Ditetapkan pada: {new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
                 </p>
-                <p className="font-semibold text-slate-800">Panitia PPDB Online Yayasan Islam</p>
+                <p className="font-semibold text-slate-800">Panitia PPDB Online Yayasan ICA</p>
                 <div className="h-16" />
                 <p className="font-bold border-t border-black inline-block px-8 pt-1">
                   ( Kepala Tata Usaha / Panitia )
